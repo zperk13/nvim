@@ -1,11 +1,11 @@
--- lsp remaps are in plugins/lsp.lua
 -- cmp remaps are in plugins/nvim-cmp.lua
 
 local keymap = vim.keymap
 
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-keymap.set("n", "<leader>t", function() vim.cmd("NvimTreeToggle")end, {desc = "Toggle nvim-[t]ree"})
+keymap.set("n", "<leader>tt", function() vim.cmd("NvimTreeToggle")end, {desc = "[t]oggle"})
+keymap.set("n", "<leader>tf", function() vim.cmd("NvimTreeFocus")end, {desc = "[f]ocus"})
 keymap.set("i", "<C-v>", '<Esc>"+pa')
 
 keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, {desc = "Find [f]iles"})
@@ -42,4 +42,5 @@ require('which-key').register {
   ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
   ['<leader>v'] = { name = '[v]anilla vim', _ = 'which_key_ignore' },
   ['<leader>vn'] = { name = '[n]umbers', _ = 'which_key_ignore' },
+  ['<leader>t'] = { name = 'nvim-[t]ree', _ = 'which_key_ignore' },
 }
