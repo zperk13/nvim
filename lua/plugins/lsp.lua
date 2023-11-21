@@ -32,7 +32,10 @@ return {
         { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
         -- Additional lua configuration, makes nvim stuff amazing!
-        'folke/neodev.nvim',
+        {
+            'folke/neodev.nvim',
+            config = true
+        }
     },
     config = function()
         local lspconfig = require("lspconfig")
