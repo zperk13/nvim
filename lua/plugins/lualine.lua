@@ -1,4 +1,4 @@
 return {
     "nvim-lualine/lualine.nvim",
-    opts = {theme = "gruvbox_dark"}
+    opts = { theme = "gruvbox_dark" }
 }

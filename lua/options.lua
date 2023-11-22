@@ -36,4 +36,3 @@ opt.timeoutlen = 1000
 opt.timeout = true
 
 opt.hlsearch = false
-
