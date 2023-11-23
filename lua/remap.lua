@@ -40,6 +40,8 @@ keymap.set("n", "<leader>vf", vim.lsp.buf.format, { desc = "[f]ormat" })
 keymap.set("n", "[d", vim.diagnostic.open_float, { desc = "Previous diagnostic" })
 keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
+keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
+
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
     ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
