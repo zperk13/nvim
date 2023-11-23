@@ -37,6 +37,8 @@ keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "[d]iagnostics
 keymap.set("n", "<leader>vh", vim.lsp.buf.hover, { desc = "[h]over" })
 keymap.set("n", "<leader>vf", vim.lsp.buf.format, { desc = "[f]ormat" })
 
+keymap.set("n", "[d", vim.diagnostic.open_float, { desc = "Previous diagnostic" })
+keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
