@@ -36,3 +36,6 @@ opt.timeoutlen = 1000
 opt.timeout = true
 
 opt.hlsearch = false
+
+opt.spell = true
+opt.spelllang = "en_us"
