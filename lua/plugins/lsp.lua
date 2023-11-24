@@ -35,6 +35,14 @@ return {
         {
             'folke/neodev.nvim',
             config = true
+        },
+
+        {
+            'SmiteshP/nvim-navic',
+            config = function()
+                require('nvim-navic').setup()
+                vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+            end
         }
     },
     config = function()
@@ -43,20 +51,30 @@ return {
 
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
+        local function on_attach(client, bufnr)
+            if client.server_capabilities.documentSymbolProvider then
+                require("nvim-navic").attach(client, bufnr)
+            end
+        end
+
         lspconfig['clangd'].setup({
             capabilities = capabilities,
+            on_attach = on_attach
         })
 
         lspconfig['html'].setup({
             capabilities = capabilities,
+            on_attach = on_attach
         })
 
         lspconfig['jsonls'].setup({
             capabilities = capabilities,
+            on_attach = on_attach
         })
 
         lspconfig['lua_ls'].setup({
             capabilities = capabilities,
+            on_attach = on_attach,
             settings = {
                 Lua = {
                     diagnostics = {
@@ -74,10 +92,12 @@ return {
 
         lspconfig['marksman'].setup({
             capabilities = capabilities,
+            on_attach = on_attach
         })
 
         lspconfig['rust_analyzer'].setup({
             capabilities = capabilities,
+            on_attach = on_attach,
             settings = {
                 ["rust-analyzer"] = {
                     checkOnSave = {
@@ -92,10 +112,12 @@ return {
 
         lspconfig['taplo'].setup({
             capabilities = capabilities,
+            on_attach = on_attach
         })
 
         lspconfig['vimls'].setup({
             capabilities = capabilities,
+            on_attach = on_attach
         })
     end
 }

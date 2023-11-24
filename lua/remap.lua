@@ -42,10 +42,21 @@ keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
 keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
 
+keymap.set("n", "<leader>rd", ":Trouble document_diagnostics<CR>", { desc = "[d]ocument diagnostics]" })
+keymap.set("n", "<leader>rw", ":Trouble workspace_diagnostics<CR>", { desc = "[w]orkspace diagnostics]" })
+keymap.set("n", "<leader>rr", ":Trouble lsp_references<CR>", { desc = "[r]eferences" })
+keymap.set("n", "<leader>rf", ":Trouble lsp_definitions<CR>", { desc = "de[f]initions" })
+keymap.set("n", "<leader>rt", ":Trouble lsp_type_definitions<CR>", { desc = "[t]ype definitions" })
+keymap.set("n", "<leader>rq", ":Trouble quickfix<CR>", { desc = "[q]uickfix" })
+keymap.set("n", "<leader>rl", ":Trouble loclist<CR>", { desc = "[l]oclist" })
+keymap.set("n", "<leader>rc", ":TroubleClose<CR>", { desc = "[c]lose" })
+keymap.set("n", "<leader>re", ":TroubleRefersh<CR>", { desc = "R[e]fresh" })
+
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
     ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
     ['<leader>v'] = { name = '[v]anilla vim', _ = 'which_key_ignore' },
     ['<leader>vn'] = { name = '[n]umbers', _ = 'which_key_ignore' },
     ['<leader>t'] = { name = 'nvim-[t]ree', _ = 'which_key_ignore' },
+    ['<leader>r'] = { name = 't[r]ouble', _ = 'which_key_ignore' },
 }
