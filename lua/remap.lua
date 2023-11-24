@@ -6,6 +6,8 @@ keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 keymap.set("n", "<leader>tt", function() vim.cmd("NvimTreeToggle") end, { desc = "[t]oggle" })
 keymap.set("n", "<leader>tf", function() vim.cmd("NvimTreeFocus") end, { desc = "[f]ocus" })
+keymap.set("n", "<leader>ts", ":NvimTreeFocus<CR><C-w>o", { desc = "full[s]creen" })
+
 keymap.set("i", "<C-v>", '<Esc>"+pa')
 
 keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "Find [f]iles" })
@@ -50,7 +52,7 @@ keymap.set("n", "<leader>rt", ":Trouble lsp_type_definitions<CR>", { desc = "[t]
 keymap.set("n", "<leader>rq", ":Trouble quickfix<CR>", { desc = "[q]uickfix" })
 keymap.set("n", "<leader>rl", ":Trouble loclist<CR>", { desc = "[l]oclist" })
 keymap.set("n", "<leader>rc", ":TroubleClose<CR>", { desc = "[c]lose" })
-keymap.set("n", "<leader>re", ":TroubleRefersh<CR>", { desc = "R[e]fresh" })
+keymap.set("n", "<leader>re", ":TroubleRefresh<CR>", { desc = "R[e]fresh" })
 
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
