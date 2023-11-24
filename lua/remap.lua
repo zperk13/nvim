@@ -54,6 +54,8 @@ keymap.set("n", "<leader>rl", ":Trouble loclist<CR>", { desc = "[l]oclist" })
 keymap.set("n", "<leader>rc", ":TroubleClose<CR>", { desc = "[c]lose" })
 keymap.set("n", "<leader>re", ":TroubleRefresh<CR>", { desc = "R[e]fresh" })
 
+keymap.set("n", "<leader>n", ":Navbuddy<CR>", { desc = "[n]avbuddy" })
+
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
     ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
