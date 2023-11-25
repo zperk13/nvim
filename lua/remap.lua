@@ -1,4 +1,5 @@
 -- cmp remaps are in plugins/nvim-cmp.lua
+-- using default bindings for https://github.com/numToStr/Comment.nvim/
 
 local keymap = vim.keymap
 
