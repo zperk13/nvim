@@ -31,7 +31,8 @@ keymap.set("n", "<leader>slt", require("telescope.builtin").lsp_type_definitions
 keymap.set("n", "<leader>st", require("telescope.builtin").treesitter, { desc = "[t]reesitter" })
 
 
-keymap.set("n", "<leader>vnr", function() vim.cmd("set relativenumber!") end, { desc = "Toggle line number [r]elativity" })
+keymap.set("n", "<leader>vnr", function() vim.cmd("set relativenumber!") end,
+    { desc = "Toggle line number [r]elativity" })
 keymap.set("n", "<leader>vnt", function() vim.cmd("set number!") end, { desc = "[T]oggle line numbers" })
 
 keymap.set("n", "<leader>vc", vim.lsp.buf.code_action, { desc = "[c]ode action" })
@@ -57,6 +58,49 @@ keymap.set("n", "<leader>re", ":TroubleRefresh<CR>", { desc = "R[e]fresh" })
 
 keymap.set("n", "<leader>n", ":Navbuddy<CR>", { desc = "[n]avbuddy" })
 
+local function open_terminal()
+    local opened_terminal = false
+
+    -- iterate through buffers
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        -- if this isn't here, it will error sometimes. why am i given an invalid buffer? idk
+        if vim.api.nvim_buf_is_valid(buf) then
+            local buffer_name = vim.api.nvim_buf_get_name(buf);
+            if string.sub(buffer_name, 1, 5) == "term:" then
+                vim.cmd.buffer(buffer_name)
+                opened_terminal = true
+                break
+            end
+        end
+    end
+    if not opened_terminal then
+        vim.cmd.terminal()
+    end
+end
+
+keymap.set("t", "<esc>", "<C-\\><C-N>")
+
+
+keymap.set("n", "<leader>mv", function()
+    vim.cmd.vsplit()
+    open_terminal()
+end, { desc = "[v]ertical split" }
+)
+keymap.set("n", "<leader>mh", function()
+    vim.cmd.split()
+    open_terminal()
+end, { desc = "[h]orizontal split" }
+)
+keymap.set("n", "<leader>mc", function()
+    open_terminal()
+end, { desc = "[c]urrent buffer" }
+)
+keymap.set("n", "<leader>mf", function()
+    open_terminal()
+    vim.cmd.only()
+end, { desc = "[f]ullscreen" }
+)
+
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
     ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
@@ -64,4 +108,5 @@ require('which-key').register {
     ['<leader>vn'] = { name = '[n]umbers', _ = 'which_key_ignore' },
     ['<leader>t'] = { name = 'nvim-[t]ree', _ = 'which_key_ignore' },
     ['<leader>r'] = { name = 't[r]ouble', _ = 'which_key_ignore' },
+    ['<leader>m'] = { name = 'ter[m]inal', _ = 'which_key_ignore' },
 }

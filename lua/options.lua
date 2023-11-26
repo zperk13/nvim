@@ -40,3 +40,5 @@ opt.hlsearch = false
 -- Spell checking
 opt.spell = true
 opt.spelllang = "en_us"
+
+opt.shell = "nu"
