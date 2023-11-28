@@ -101,6 +101,10 @@ keymap.set("n", "<leader>mf", function()
 end, { desc = "[f]ullscreen" }
 )
 
+
+keymap.set('n', '<leader>u', "<CMD>UndotreeToggle<CR>", { desc = "[u]ndotree" })
+
+
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
     ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
