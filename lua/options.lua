@@ -46,3 +46,7 @@ opt.shell = "nu"
 
 -- Disables the default mode indicator since lualine has it
 opt.showmode = false
+
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
