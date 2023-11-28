@@ -41,4 +41,8 @@ opt.hlsearch = false
 opt.spell = true
 opt.spelllang = "en_us"
 
+-- Makes the terminal use nushell
 opt.shell = "nu"
+
+-- Disables the default mode indicator since lualine has it
+opt.showmode = false
