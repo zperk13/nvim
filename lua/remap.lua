@@ -114,3 +114,5 @@ require('which-key').register {
     ['<leader>r'] = { name = 't[r]ouble', _ = 'which_key_ignore' },
     ['<leader>m'] = { name = 'ter[m]inal', _ = 'which_key_ignore' },
 }
+
+keymap.set({'n', 'i', 'v', 't'}, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)
