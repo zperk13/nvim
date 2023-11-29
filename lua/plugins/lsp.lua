@@ -52,6 +52,11 @@ return {
             opts = {
                 lsp = { auto_attach = true },
             }
+        },
+
+        {
+            'lvimuser/lsp-inlayhints.nvim',
+            config = true
         }
 
     },
@@ -65,6 +70,7 @@ return {
             if client.server_capabilities.documentSymbolProvider then
                 require("nvim-navic").attach(client, bufnr)
             end
+            require('lsp-inlayhints').on_attach(client, bufnr)
         end
 
         lspconfig['clangd'].setup({
@@ -115,6 +121,12 @@ return {
                     },
                     cargo = {
                         allFeatures = true,
+                    },
+                    inlayHints = {
+                        enabled = true,
+                        typeHints = {
+                            enable = true
+                        }
                     }
                 }
             }
