@@ -5,9 +5,9 @@ local keymap = vim.keymap
 
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-keymap.set("n", "<leader>tt", function() vim.cmd("NvimTreeToggle") end, { desc = "[t]oggle" })
-keymap.set("n", "<leader>tf", function() vim.cmd("NvimTreeFocus") end, { desc = "[f]ocus" })
-keymap.set("n", "<leader>ts", ":NvimTreeFocus<CR><C-w>o", { desc = "full[s]creen" })
+keymap.set("n", "<leader>nt", function() vim.cmd("NvimTreeToggle") end, { desc = "[t]oggle" })
+keymap.set("n", "<leader>nf", function() vim.cmd("NvimTreeFocus") end, { desc = "[f]ocus" })
+keymap.set("n", "<leader>ns", ":NvimTreeFocus<CR><C-w>o", { desc = "full[s]creen" })
 
 keymap.set("i", "<C-v>", '<Esc>"+pa')
 
@@ -46,15 +46,15 @@ keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
 keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
 
-keymap.set("n", "<leader>rd", ":Trouble document_diagnostics<CR>", { desc = "[d]ocument diagnostics]" })
-keymap.set("n", "<leader>rw", ":Trouble workspace_diagnostics<CR>", { desc = "[w]orkspace diagnostics]" })
-keymap.set("n", "<leader>rr", ":Trouble lsp_references<CR>", { desc = "[r]eferences" })
-keymap.set("n", "<leader>rf", ":Trouble lsp_definitions<CR>", { desc = "de[f]initions" })
-keymap.set("n", "<leader>rt", ":Trouble lsp_type_definitions<CR>", { desc = "[t]ype definitions" })
-keymap.set("n", "<leader>rq", ":Trouble quickfix<CR>", { desc = "[q]uickfix" })
-keymap.set("n", "<leader>rl", ":Trouble loclist<CR>", { desc = "[l]oclist" })
-keymap.set("n", "<leader>rc", ":TroubleClose<CR>", { desc = "[c]lose" })
-keymap.set("n", "<leader>re", ":TroubleRefresh<CR>", { desc = "R[e]fresh" })
+keymap.set("n", "<leader>ed", ":Trouble document_diagnostics<CR>", { desc = "[d]ocument diagnostics]" })
+keymap.set("n", "<leader>ew", ":Trouble workspace_diagnostics<CR>", { desc = "[w]orkspace diagnostics]" })
+keymap.set("n", "<leader>er", ":Trouble lsp_references<CR>", { desc = "[r]eferences" })
+keymap.set("n", "<leader>ef", ":Trouble lsp_definitions<CR>", { desc = "de[f]initions" })
+keymap.set("n", "<leader>et", ":Trouble lsp_type_definitions<CR>", { desc = "[t]ype definitions" })
+keymap.set("n", "<leader>eq", ":Trouble quickfix<CR>", { desc = "[q]uickfix" })
+keymap.set("n", "<leader>el", ":Trouble loclist<CR>", { desc = "[l]oclist" })
+keymap.set("n", "<leader>ec", ":TroubleClose<CR>", { desc = "[c]lose" })
+keymap.set("n", "<leader>ee", ":TroubleRefresh<CR>", { desc = "R[e]fresh" })
 
 keymap.set("n", "<leader>n", ":Navbuddy<CR>", { desc = "[n]avbuddy" })
 
@@ -81,21 +81,21 @@ end
 keymap.set("t", "<esc>", "<C-\\><C-N>")
 
 
-keymap.set("n", "<leader>mv", function()
+keymap.set("n", "<leader>tv", function()
     vim.cmd.vsplit()
     open_terminal()
 end, { desc = "[v]ertical split" }
 )
-keymap.set("n", "<leader>mh", function()
+keymap.set("n", "<leader>th", function()
     vim.cmd.split()
     open_terminal()
 end, { desc = "[h]orizontal split" }
 )
-keymap.set("n", "<leader>mc", function()
+keymap.set("n", "<leader>tc", function()
     open_terminal()
 end, { desc = "[c]urrent buffer" }
 )
-keymap.set("n", "<leader>mf", function()
+keymap.set("n", "<leader>tf", function()
     open_terminal()
     vim.cmd.only()
 end, { desc = "[f]ullscreen" }
@@ -104,15 +104,18 @@ end, { desc = "[f]ullscreen" }
 
 keymap.set('n', '<leader>u', "<CMD>UndotreeToggle<CR>", { desc = "[u]ndotree" })
 
+keymap.set('n', '<leader>gl', "<CMD>Gitsigns toggle_linehl<CR>", { desc = "Toggle [l]ine highlight" })
+keymap.set('n', '<leader>gw', "<CMD>Gitsigns toggle_word_diff<CR>", { desc = "Toggle [w]ord diff" })
 
 require('which-key').register {
     ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
     ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
     ['<leader>v'] = { name = '[v]anilla vim', _ = 'which_key_ignore' },
     ['<leader>vn'] = { name = '[n]umbers', _ = 'which_key_ignore' },
-    ['<leader>t'] = { name = 'nvim-[t]ree', _ = 'which_key_ignore' },
-    ['<leader>r'] = { name = 't[r]ouble', _ = 'which_key_ignore' },
-    ['<leader>m'] = { name = 'ter[m]inal', _ = 'which_key_ignore' },
+    ['<leader>n'] = { name = '[n]vim-tree', _ = 'which_key_ignore' },
+    ['<leader>e'] = { name = 'troubl[e]', _ = 'which_key_ignore' },
+    ['<leader>t'] = { name = '[t]erminal', _ = 'which_key_ignore' },
+    ['<leader>g'] = { name = '[g]itsigns', _ = 'which_key_ignore' },
 }
 
 keymap.set({'n', 'i', 'v', 't'}, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)
