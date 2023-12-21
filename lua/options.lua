@@ -37,19 +37,24 @@ opt.timeout = true
 
 opt.hlsearch = false
 
--- Spell checking
-opt.spell = true
-opt.spelllang = "en_us"
-
 -- Makes the terminal use nushell
 opt.shell = "nu"
 
--- Disables the default mode indicator since lualine has it
-opt.showmode = false
-
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldenable = false
-
 opt.titlestring = "Neovim"
 opt.title = true
+
+if g.cfg_complexity ~= "min" then
+    -- Spell checking
+    opt.spell = true
+    opt.spelllang = "en_us"
+end
+
+if g.cfg_complexity == "full" then
+    -- Disables the default mode indicator since lualine has it
+    opt.showmode = false
+
+    opt.foldmethod = "expr"
+    opt.foldexpr = "nvim_treesitter#foldexpr()"
+    opt.foldenable = true
+    opt.foldlevel = 99
+end

@@ -6,4 +6,5 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     config = true,
+    cond = vim.g.cfg_complexity == "full"
 }

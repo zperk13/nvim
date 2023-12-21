@@ -6,5 +6,6 @@ return {
         },
         -- delete_to_trash = true, not supported on windows yet :(
     },
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond = vim.g.cfg_complexity == "full"
 }

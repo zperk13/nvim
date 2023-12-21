@@ -6,5 +6,6 @@ return {
     config = {
         ensure_installed = { "c", "html", "json", "lua", "rust", "toml", "vim", "vimdoc" }
     },
-    event = { "BufReadPost", "BufNewFile" }
+    event = { "BufReadPost", "BufNewFile" },
+    cond = vim.g.cfg_complexity == "full"
 }

@@ -3,5 +3,6 @@ return {
     opts = {
         numhl = true
     },
-    event = { "BufReadPost", "BufNewFile" }
+    event = { "BufReadPost", "BufNewFile" },
+    cond = vim.g.cfg_complexity == "full"
 }

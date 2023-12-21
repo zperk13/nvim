@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+    cond = vim.g.cfg_complexity == "full",
     opts = {
         theme = "gruvbox_dark",
         sections = {
@@ -9,10 +10,10 @@ return {
                 {
                     'filename',
                     symbols = {
-                        modified = '[Modified]', -- Text to show when the file is modified.
+                        modified = '[Modified]',  -- Text to show when the file is modified.
                         readonly = '[Read Only]', -- Text to show when the file is non-modifiable or readonly.
-                        unnamed = '[Unnamed]', -- Text to show for unnamed buffers.
-                        newfile = '[New File]', -- Text to show for newly created file before first write
+                        unnamed = '[Unnamed]',    -- Text to show for unnamed buffers.
+                        newfile = '[New File]',   -- Text to show for newly created file before first write
                     }
                 },
                 {

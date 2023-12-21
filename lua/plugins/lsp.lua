@@ -1,4 +1,5 @@
 return {
+    cond = vim.g.cfg_complexity == "full",
     'neovim/nvim-lspconfig',
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
@@ -35,23 +36,6 @@ return {
         {
             'folke/neodev.nvim',
             config = true
-        },
-
-        {
-            'SmiteshP/nvim-navbuddy',
-            dependencies = {
-                {
-                    'SmiteshP/nvim-navic',
-                    config = function()
-                        require('nvim-navic').setup()
-                        vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-                    end
-                },
-                'MunifTanjim/nui.nvim'
-            },
-            opts = {
-                lsp = { auto_attach = true },
-            }
         },
 
         {

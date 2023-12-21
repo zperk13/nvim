@@ -1,5 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
+    cond = vim.g.cfg_complexity == "full",
     dependencies = {
         "hrsh7th/cmp-buffer", -- general text completions. words and stuff
         "hrsh7th/cmp-path",   -- file path completion
