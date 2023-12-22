@@ -3,7 +3,7 @@ return {
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })()
     end,
-    config = {
+    opts = {
         ensure_installed = { "lua", "vim", "vimdoc" }
     },
     event = { "BufReadPost", "BufNewFile" },
