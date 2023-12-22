@@ -14,7 +14,14 @@ return {
 
                 mason_lspconfig.setup({
                     ensure_installed = {
+                        'clangd',
+                        'html',
+                        'jsonls',
                         'lua_ls',
+                        'marksman', -- markdown
+                        'rust_analyzer',
+                        'taplo',    -- TOML
+                        'vimls',
                     },
                     automatic_installation = true
                 })
@@ -36,6 +43,9 @@ return {
             config = true
         }
 
+    },
+    opts = {
+        inlay_hints = { enabled = true },
     },
     config = function()
         local lspconfig = require("lspconfig")
