@@ -37,8 +37,10 @@ opt.timeout = true
 
 opt.hlsearch = false
 
--- Makes the terminal use nushell
-opt.shell = "nu"
+-- Makes the terminal use nushell if it's on the system
+if vim.fn.executable('nu') == 1 then
+    opt.shell = "nu"
+end
 
 opt.titlestring = "Neovim"
 opt.title = true
