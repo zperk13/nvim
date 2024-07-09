@@ -38,6 +38,7 @@ if vim.g.cfg_complexity ~= "min" then
     keymap.set("n", "<leader>vnr", function() vim.cmd("set relativenumber!") end,
         { desc = "Toggle line number [r]elativity" })
     keymap.set("n", "<leader>vnt", function() vim.cmd("set number!") end, { desc = "[T]oggle line numbers" })
+    keymap.set("n", "<leader>vi", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle [i]nlay hints" })
 
     local function open_terminal()
         local opened_terminal = false

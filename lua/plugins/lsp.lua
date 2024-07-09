@@ -20,6 +20,7 @@ return {
                         'lua_ls',
                         'marksman', -- markdown
                         'rust_analyzer',
+                        -- 'spyglassmc-language-server', Even though I can install it in the :Mason gui, it doesn't like it being an option in here for some reason
                         'taplo',    -- TOML
                         'vimls',
                     },
@@ -37,16 +38,8 @@ return {
             'folke/neodev.nvim',
             config = true
         },
-
-        {
-            'lvimuser/lsp-inlayhints.nvim',
-            config = true
-        }
-
     },
-    opts = {
-        inlay_hints = { enabled = true },
-    },
+    opts = {},
     config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -55,9 +48,8 @@ return {
 
         local function on_attach(client, bufnr)
             if client.server_capabilities.documentSymbolProvider then
-                require("nvim-navic").attach(client, bufnr)
+                -- require("nvim-navic").attach(client, bufnr)
             end
-            require('lsp-inlayhints').on_attach(client, bufnr)
         end
 
         lspconfig['clangd'].setup({
@@ -117,6 +109,11 @@ return {
                     }
                 }
             }
+        })
+
+        lspconfig['spyglassmc_language_server'].setup({
+            capabilities = capabilities,
+            on_attach = on_attach
         })
 
         lspconfig['taplo'].setup({
