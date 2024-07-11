@@ -1,6 +1,7 @@
 vim.ui.select({"full", "lite", "min"}, {prompt="Choose a config"}, function(choice) vim.g.cfg_complexity=choice end);
 
 require("neovide")
+require("filetype")
 
 if vim.g.cfg_complexity ~= "min" then
     vim.g.mapleader = ' '
