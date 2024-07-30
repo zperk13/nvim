@@ -40,6 +40,9 @@ if vim.g.cfg_complexity ~= "min" then
     keymap.set("n", "<leader>vnt", function() vim.cmd("set number!") end, { desc = "[T]oggle line numbers" })
     keymap.set("n", "<leader>vi", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle [i]nlay hints" })
 
+    -- "Smart dd" from Reddit. Only yanks the line if not empty
+    keymap.set("n", "dd", function() if vim.fn.getline(".") == "" then return '"_dd' end return "dd" end, {expr=true})
+
     local function open_terminal()
         local opened_terminal = false
 
