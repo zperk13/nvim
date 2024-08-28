@@ -1,4 +1,7 @@
-vim.ui.select({"full", "lite", "min"}, {prompt="Choose a config"}, function(choice) vim.g.cfg_complexity=choice end);
+vim.ui.select({ "min", "lite", "full"}, {prompt="Choose a config"}, function(choice) vim.g.cfg_complexity=choice end);
+if vim.g.cfg_complexity == nil then
+    vim.g.cfg_complexity = "min"
+end
 
 require("neovide")
 require("filetype")
