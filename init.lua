@@ -14,5 +14,8 @@ if vim.g.cfg_complexity ~= "min" then
     require("options")
     require("remap")
     require("highlight_yank")
+else
+    -- seems to preserve the terminal's colorscheme
+    vim.cmd("colorscheme vim")
 end
 
