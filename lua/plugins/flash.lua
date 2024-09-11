@@ -1,6 +1,8 @@
 return {
     'folke/flash.nvim',
     event = { "BufReadPost", "BufNewFile" },
-    config = true,
+    config = {
+        modes = {search = {enabled=true}}
+    },
     cond = vim.g.cfg_complexity == "full"
 }
