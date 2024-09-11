@@ -122,22 +122,22 @@ end
 
 
 if vim.g.cfg_complexity == "full" then
-    require('which-key').register {
-        ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
-        ['<leader>sl'] = { name = '[l]sp', _ = 'which_key_ignore' },
-        ['<leader>v'] = { name = '[v]anilla vim', _ = 'which_key_ignore' },
-        ['<leader>vn'] = { name = '[n]umbers', _ = 'which_key_ignore' },
-        ['<leader>n'] = { name = '[n]vim-tree', _ = 'which_key_ignore' },
-        ['<leader>e'] = { name = 'troubl[e]', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[t]erminal', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = '[g]itsigns', _ = 'which_key_ignore' },
+    require('which-key').add {
+        {'<leader>s',group='Tele[s]cope'},
+        {'<leader>sl',group = '[l]sp'},
+        {'<leader>v', group = '[v]anilla vim'  },
+        {'<leader>vn',  group = '[n]umbers'  },
+        {'<leader>n' ,  group = '[n]vim-tree' },
+        {'<leader>e' ,  group = 'troubl[e]'},
+        {'<leader>t' ,  group = '[t]erminal' },
+        {'<leader>g' ,  group = '[g]itsigns' },
     }
 elseif vim.g.cfg_complexity == "lite" then
-    require('which-key').register {
-        ['<leader>s'] = { name = 'Tele[s]cope', _ = 'which_key_ignore' },
-        ['<leader>v'] = { name = '[v]anilla vim', _ = 'which_key_ignore' },
-        ['<leader>vn'] = { name = '[n]umbers', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[t]erminal', _ = 'which_key_ignore' },
+    require('which-key').add {
+        {'<leader>s',group='Tele[s]cope'},
+        {'<leader>v', group = '[v]anilla vim'  },
+        {'<leader>vn',  group = '[n]umbers'  },
+        {'<leader>t' ,  group = '[t]erminal' },
     }
 end
 
