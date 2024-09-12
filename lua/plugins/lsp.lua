@@ -1,3 +1,4 @@
+-- Hi future me! If mason is having trouble installing stuff, make sure you have npm installed
 return {
     cond = vim.g.cfg_complexity == "full",
     'neovim/nvim-lspconfig',
