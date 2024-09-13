@@ -106,15 +106,19 @@ if vim.g.cfg_complexity == "full" then
 
     keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
 
-    keymap.set("n", "<leader>ed", ":Trouble document_diagnostics<CR>", { desc = "[d]ocument diagnostics]" })
-    keymap.set("n", "<leader>ew", ":Trouble workspace_diagnostics<CR>", { desc = "[w]orkspace diagnostics]" })
-    keymap.set("n", "<leader>er", ":Trouble lsp_references<CR>", { desc = "[r]eferences" })
-    keymap.set("n", "<leader>ef", ":Trouble lsp_definitions<CR>", { desc = "de[f]initions" })
-    keymap.set("n", "<leader>et", ":Trouble lsp_type_definitions<CR>", { desc = "[t]ype definitions" })
-    keymap.set("n", "<leader>eq", ":Trouble quickfix<CR>", { desc = "[q]uickfix" })
-    keymap.set("n", "<leader>el", ":Trouble loclist<CR>", { desc = "[l]oclist" })
-    keymap.set("n", "<leader>ec", ":TroubleClose<CR>", { desc = "[c]lose" })
-    keymap.set("n", "<leader>ee", ":TroubleRefresh<CR>", { desc = "R[e]fresh" })
+    local trouble = require("trouble")
+    keymap.set("n", "<leader>ec", trouble.close, {desc="[c]lose"})
+    keymap.set("n", "<leader>er", trouble.refresh, {desc="[r]efresh"})
+    keymap.set("n", "<leader>eod", function() trouble.open("diagnostics") end, {desc="[d]iagnostics"})
+    keymap.set("n", "<leader>eoq", function() trouble.open("quickfix") end, {desc="[q]uickfix"})
+    keymap.set("n", "<leader>eolc", function() trouble.open("lsp_declarations") end, {desc="de[c]larations"})
+    keymap.set("n", "<leader>eolf", function() trouble.open("lsp_definitions") end, {desc="de[f]initions"})
+    keymap.set("n", "<leader>eols", function() trouble.open("lsp_document_symbols") end, {desc="[s]ymbols"})
+    keymap.set("n", "<leader>eolm", function() trouble.open("lsp_implementations") end, {desc="i[m]plementations"})
+    keymap.set("n", "<leader>eoli", function() trouble.open("lsp_incoming_calls") end, {desc="[i]ncoming calls"})
+    keymap.set("n", "<leader>eolo", function() trouble.open("lsp_outgoing_calls") end, {desc="[o]utgoing calls"})
+    keymap.set("n", "<leader>eolr", function() trouble.open("lsp_references") end, {desc="[r]eferences"})
+    keymap.set("n", "<leader>eolt", function() trouble.open("lsp_type_definitions") end, {desc="[t]ype definitions"})
 
     keymap.set('n', '<leader>gl', "<CMD>Gitsigns toggle_linehl<CR>", { desc = "Toggle [l]ine highlight" })
     keymap.set('n', '<leader>gw', "<CMD>Gitsigns toggle_word_diff<CR>", { desc = "Toggle [w]ord diff" })
@@ -129,6 +133,8 @@ if vim.g.cfg_complexity == "full" then
         {'<leader>vn',  group = '[n]umbers'  },
         {'<leader>n' ,  group = '[n]vim-tree' },
         {'<leader>e' ,  group = 'troubl[e]'},
+        {'<leader>eo' ,  group = '[o]pen'},
+        {'<leader>eol' ,  group = '[l]sp'},
         {'<leader>t' ,  group = '[t]erminal' },
         {'<leader>g' ,  group = '[g]itsigns' },
     }
