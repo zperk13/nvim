@@ -122,6 +122,10 @@ if vim.g.cfg_complexity == "full" then
 
     keymap.set('n', '<leader>gl', "<CMD>Gitsigns toggle_linehl<CR>", { desc = "Toggle [l]ine highlight" })
     keymap.set('n', '<leader>gw', "<CMD>Gitsigns toggle_word_diff<CR>", { desc = "Toggle [w]ord diff" })
+
+    local flash = require("flash")
+    keymap.set('n', '<leader>ff', function() flash.jump() end, {desc = "[f]ind"})
+    keymap.set('n', '<leader>fc', function() flash.jump({continue = true}) end, {desc = "[c]ontinue last search"})
 end
 
 
@@ -137,6 +141,7 @@ if vim.g.cfg_complexity == "full" then
         {'<leader>eol' ,  group = '[l]sp'},
         {'<leader>t' ,  group = '[t]erminal' },
         {'<leader>g' ,  group = '[g]itsigns' },
+        {'<leader>f' ,  group = '[f]lash (find)' },
     }
 elseif vim.g.cfg_complexity == "lite" then
     require('which-key').add {
