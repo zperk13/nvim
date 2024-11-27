@@ -23,6 +23,8 @@ return {
                         'rust_analyzer',
                         -- 'spyglassmc-language-server', Even though I can install it in the :Mason gui, it doesn't like it being an option in here for some reason
                         'taplo',    -- TOML
+                        -- 'typst_lsp',
+                        'tinymist', -- Typst
                         'vimls',
                     },
                     automatic_installation = true
@@ -120,6 +122,15 @@ return {
         lspconfig['taplo'].setup({
             capabilities = capabilities,
             on_attach = on_attach
+        })
+
+        lspconfig['tinymist'].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            single_file_support = true,
+            root_dir = function()
+                return vim.fn.getcwd()
+            end
         })
 
         lspconfig['vimls'].setup({
