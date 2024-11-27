@@ -25,7 +25,7 @@ opt.incsearch = true
 -- 24-bit RGB
 opt.termguicolors = true
 
--- Makes it so there will always be at least 8 lines visible aboce and below your cursor (unless you're at the start/end of a file) (default: 0)
+-- Makes it so there will always be at least 8 lines visible above and below your cursor (unless you're at the start/end of a file) (default: 0)
 opt.scrolloff = 8
 
 -- Disables the mouse
