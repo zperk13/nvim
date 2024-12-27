@@ -103,9 +103,9 @@ return {
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
         local function on_attach(client, bufnr)
-            if client.server_capabilities.documentSymbolProvider then
+            -- if client.server_capabilities.documentSymbolProvider then
                 -- require("nvim-navic").attach(client, bufnr)
-            end
+            -- end
         end
 
         for k, v in pairs(packages) do
