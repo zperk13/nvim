@@ -1,4 +1,65 @@
 -- Hi future me! If mason is having trouble installing stuff, make sure you have npm installed
+
+local packages = {
+    clangd = {},
+    html = {},
+    jsonls = {},
+    lua_ls = {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.stdpath("config") .. "/lua"] = true
+                    }
+                }
+            }
+        }
+    },
+
+    -- markdown
+    marksman = {},
+
+    rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                },
+                cargo = {
+                    allFeatures = true,
+                },
+                inlayHints = {
+                    enabled = true,
+                    typeHints = {
+                        enable = true
+                    }
+                }
+            }
+        }
+    },
+
+    -- 'spyglassmc-language-server', Even though I can install it in the :Mason gui, it doesn't like it being an option in here for some reason
+
+    -- TOML
+    taplo = {},
+
+    -- 'typst_lsp',
+
+    -- Typst
+    tinymist = {
+        single_file_support = true,
+        root_dir = function()
+            return vim.fn.getcwd()
+        end
+    },
+
+    vimls = {},
+}
+
 return {
     cond = vim.g.cfg_complexity == "full",
     'neovim/nvim-lspconfig',
@@ -13,20 +74,12 @@ return {
 
                 mason.setup()
 
+                local ensured_installed = {}
+                for k, _ in pairs(packages) do
+                    table.insert(ensured_installed, k)
+                end
                 mason_lspconfig.setup({
-                    ensure_installed = {
-                        'clangd',
-                        'html',
-                        'jsonls',
-                        'lua_ls',
-                        'marksman', -- markdown
-                        'rust_analyzer',
-                        -- 'spyglassmc-language-server', Even though I can install it in the :Mason gui, it doesn't like it being an option in here for some reason
-                        'taplo',    -- TOML
-                        -- 'typst_lsp',
-                        'tinymist', -- Typst
-                        'vimls',
-                    },
+                    ensure_installed = ensured_installed,
                     automatic_installation = true
                 })
             end
@@ -55,87 +108,15 @@ return {
             end
         end
 
-        lspconfig['clangd'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
-
-        lspconfig['html'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
-
-        lspconfig['jsonls'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
-
-        lspconfig['lua_ls'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                    workspace = {
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true
-                        }
-                    }
-                }
+        for k, v in pairs(packages) do
+            local setup = {
+                capabilities = capabilities,
+                on_attach = on_attach
             }
-        })
-
-        lspconfig['marksman'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
-
-        lspconfig['rust_analyzer'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                ["rust-analyzer"] = {
-                    checkOnSave = {
-                        command = "clippy",
-                    },
-                    cargo = {
-                        allFeatures = true,
-                    },
-                    inlayHints = {
-                        enabled = true,
-                        typeHints = {
-                            enable = true
-                        }
-                    }
-                }
-            }
-        })
-
-        lspconfig['spyglassmc_language_server'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
-
-        lspconfig['taplo'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
-
-        lspconfig['tinymist'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            single_file_support = true,
-            root_dir = function()
-                return vim.fn.getcwd()
+            for vk, vv in pairs(v) do
+                setup[vk] = vv
             end
-        })
-
-        lspconfig['vimls'].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
+            lspconfig[k].setup(setup)
+        end
     end
 }
