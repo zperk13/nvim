@@ -78,6 +78,7 @@ return {
                 for k, _ in pairs(packages) do
                     table.insert(ensured_installed, k)
                 end
+
                 mason_lspconfig.setup({
                     ensure_installed = ensured_installed,
                     automatic_installation = true
@@ -91,7 +92,8 @@ return {
 
         -- Additional lua configuration, makes nvim stuff amazing!
         {
-            'folke/neodev.nvim',
+            'folke/lazydev.nvim',
+            ft = 'lua',
             config = true
         },
     },
