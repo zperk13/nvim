@@ -24,6 +24,7 @@ local packages = {
     marksman = {},
 
     rust_analyzer = {
+        masonignore = true, -- better to use rustup
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = {
@@ -75,8 +76,10 @@ return {
                 mason.setup()
 
                 local ensured_installed = {}
-                for k, _ in pairs(packages) do
-                    table.insert(ensured_installed, k)
+                for k, v in pairs(packages) do
+                    if not v.masonignore then
+                        table.insert(ensured_installed, k)
+                    end
                 end
 
                 mason_lspconfig.setup({
@@ -96,7 +99,7 @@ return {
             ft = 'lua',
             config = true
         },
-    },
+        },
     opts = {},
     config = function()
         local lspconfig = require("lspconfig")
@@ -116,7 +119,9 @@ return {
                 on_attach = on_attach
             }
             for vk, vv in pairs(v) do
-                setup[vk] = vv
+                if vk ~= "masonignore" then
+                    setup[vk] = vv
+                end
             end
             lspconfig[k].setup(setup)
         end
