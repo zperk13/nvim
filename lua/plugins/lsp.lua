@@ -2,6 +2,12 @@
 
 local packages = {
     clangd = {},
+    -- javascript/typescript
+    eslint = {},
+    -- haskell
+    hls = {
+        masonignore = true -- better to use ghcup
+    },
     html = {},
     jsonls = {},
     lua_ls = {
@@ -57,6 +63,8 @@ local packages = {
             return vim.fn.getcwd()
         end
     },
+
+    ts_ls = {},
 
     vimls = {},
 }
