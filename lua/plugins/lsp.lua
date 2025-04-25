@@ -5,9 +5,6 @@ local packages = {
     -- javascript/typescript
     eslint = {},
     -- haskell
-    hls = {
-        masonignore = true -- better to use ghcup
-    },
     html = {},
     jsonls = {},
     lua_ls = {
