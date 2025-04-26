@@ -3,6 +3,6 @@ return {
     event = 'BufNewFile',
     opts = {
         command = false,
-        default = "/usr/bin/env sh"
+        default = "/usr/bin/env bash"
     }
 }
