@@ -108,11 +108,12 @@ return {
     opts = {},
     config = function()
         local lspconfig = require("lspconfig")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-        local capabilities = cmp_nvim_lsp.default_capabilities()
 
         local function on_attach(client, bufnr)
+            if client:supports_method('textDocument/completion') then
+                vim.lsp.completion.enable(true, client.id, bufnr, {autotrigger=true})
+            end
             -- if client.server_capabilities.documentSymbolProvider then
                 -- require("nvim-navic").attach(client, bufnr)
             -- end
