@@ -10,6 +10,8 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 keymap.set("i", "<C-v>", '<Esc>"+pa')
 
+keymap.set("i", "<C-Space>", function() vim.lsp.completion.get() end)
+
 keymap.set("t", "<esc>", "<C-\\><C-N>")
 
 keymap.set({ 'n', 'i', 'v', 't' }, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)

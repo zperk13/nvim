@@ -8,4 +8,4 @@ require("lazynvim")
 require("options")
 require("remap")
 require("highlight_yank")
-
+require("lsp")

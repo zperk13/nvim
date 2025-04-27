@@ -108,21 +108,9 @@ return {
     opts = {},
     config = function()
         local lspconfig = require("lspconfig")
-
-        local function on_attach(client, bufnr)
-            if client:supports_method('textDocument/completion') then
-                vim.lsp.completion.enable(true, client.id, bufnr, {autotrigger=true})
-            end
-            -- if client.server_capabilities.documentSymbolProvider then
-                -- require("nvim-navic").attach(client, bufnr)
-            -- end
-        end
-
+        
         for k, v in pairs(packages) do
-            local setup = {
-                capabilities = capabilities,
-                on_attach = on_attach
-            }
+            local setup = {}
             for vk, vv in pairs(v) do
                 if vk ~= "masonignore" then
                     setup[vk] = vv
