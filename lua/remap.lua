@@ -19,21 +19,8 @@ keymap.set({ 'n', 'i', 'v', 't' }, "<f11>", function() vim.g.neovide_fullscreen 
 keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "Find [f]iles" })
 keymap.set("n", "<leader>sa", require("telescope.builtin").live_grep, { desc = "Live grep in [a]ll files" })
 keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, { desc = "Open [b]uffers" })
-keymap.set("n", "<leader>sr", require("telescope.builtin").oldfiles, { desc = "[r]ecent files" })
 keymap.set("n", "<leader>sq", require("telescope.builtin").quickfix, { desc = "[q]uickfix" })
 keymap.set("n", "<leader>sc", require("telescope.builtin").current_buffer_fuzzy_find, { desc = "[c]urrent buffer" })
-keymap.set("n", "<leader>slr", require("telescope.builtin").lsp_references, { desc = "[r]eferences" })
-keymap.set("n", "<leader>sli", require("telescope.builtin").lsp_incoming_calls, { desc = "[i]ncoming calls" })
-keymap.set("n", "<leader>slo", require("telescope.builtin").lsp_outgoing_calls, { desc = "[o]utgoing calls" })
-keymap.set("n", "<leader>slc", require("telescope.builtin").lsp_document_symbols, { desc = "do[c]ument symbols" })
-keymap.set("n", "<leader>slw", require("telescope.builtin").lsp_workspace_symbols, { desc = "[w]orkspace symbols" })
-keymap.set("n", "<leader>sly", require("telescope.builtin").lsp_dynamic_workspace_symbols,
-    { desc = "D[y]namic workspace symbols" })
-keymap.set("n", "<leader>slg", require("telescope.builtin").diagnostics, { desc = "Dia[g]nostics" })
-keymap.set("n", "<leader>slm", require("telescope.builtin").lsp_implementations, { desc = "I[m]plementations" })
-keymap.set("n", "<leader>sld", require("telescope.builtin").lsp_definitions, { desc = "[d]efinitions" })
-keymap.set("n", "<leader>slt", require("telescope.builtin").lsp_type_definitions, { desc = "[t]ype definitions" })
-keymap.set("n", "<leader>st", require("telescope.builtin").treesitter, { desc = "[t]reesitter" })
 
 keymap.set("n", "<leader>vnr", function() vim.cmd("set relativenumber!") end,
     { desc = "Toggle line number [r]elativity" })
@@ -93,14 +80,13 @@ keymap.set("n", "<leader>nt", function() vim.cmd("NvimTreeToggle") end, { desc =
 keymap.set("n", "<leader>nf", function() vim.cmd("NvimTreeFocus") end, { desc = "[f]ocus" })
 keymap.set("n", "<leader>ns", ":NvimTreeFocus<CR><C-w>o", { desc = "full[s]creen" })
 
-keymap.set("n", "<leader>vc", vim.lsp.buf.code_action, { desc = "[c]ode action" })
-keymap.set("n", "<leader>vr", vim.lsp.buf.rename, { desc = "[r]ename" })
-keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "[d]iagnostics" })
-keymap.set("n", "<leader>vh", vim.lsp.buf.hover, { desc = "[h]over" })
-keymap.set("n", "<leader>vf", vim.lsp.buf.format, { desc = "[f]ormat" })
-
-keymap.set("n", "[d", vim.diagnostic.open_float, { desc = "Previous diagnostic" })
-keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+keymap.set("n", "<leader>lc", vim.lsp.buf.code_action, { desc = "[c]ode action" })
+keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, { desc = "re[n]ame" })
+keymap.set("n", "<leader>lrf", vim.lsp.buf.references, {desc="re[f]erences"})
+keymap.set("n", "<leader>li", vim.lsp.buf.implementation, {desc="[i]mplementation"})
+keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "[h]over" })
+keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[f]ormat" })
+keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "[d]iagnostics" })
 
 keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
 
@@ -138,4 +124,6 @@ require('which-key').add {
     { '<leader>t',    group = '[t]erminal' },
     { '<leader>g',    group = '[g]itsigns' },
     { '<leader>f',    group = '[f]lash (find)' },
+    { '<leader>l',    group = '[L]SP/Diagnostics'},
+    { '<leader>lr',   group = '[r]e'}
 }
