@@ -50,18 +50,15 @@ vim.api.nvim_create_user_command('Q', 'q', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 
-if g.cfg_complexity ~= "min" then
-    -- Spell checking
-    opt.spell = true
-    opt.spelllang = "en_us"
-end
+-- Spell checking
+opt.spell = true
+opt.spelllang = "en_us"
 
-if g.cfg_complexity == "full" then
-    -- Disables the default mode indicator since lualine has it
-    opt.showmode = false
+-- Disables the default mode indicator since lualine has it
+opt.showmode = false
 
-    opt.foldmethod = "expr"
-    opt.foldexpr = "nvim_treesitter#foldexpr()"
-    opt.foldenable = true
-    opt.foldlevel = 99
-end
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = true
+opt.foldlevel = 99
+

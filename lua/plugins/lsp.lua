@@ -68,7 +68,6 @@ local packages = {
 }
 
 return {
-    cond = vim.g.cfg_complexity == "full",
     'neovim/nvim-lspconfig',
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
@@ -109,7 +108,6 @@ return {
     opts = {},
     config = function()
         local lspconfig = require("lspconfig")
-
 
         local function on_attach(client, bufnr)
             if client:supports_method('textDocument/completion') then

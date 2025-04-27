@@ -1,6 +1,5 @@
 return {
     "nvim-lualine/lualine.nvim",
-    cond = vim.g.cfg_complexity == "full",
     opts = {
         theme = "gruvbox_dark",
         sections = {
