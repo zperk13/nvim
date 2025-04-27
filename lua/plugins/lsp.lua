@@ -30,8 +30,9 @@ local packages = {
         masonignore = true, -- better to use rustup
         settings = {
             ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy",
+                checkOnSave = true,
+                check = {
+                    command = "clippy"
                 },
                 cargo = {
                     allFeatures = true,
