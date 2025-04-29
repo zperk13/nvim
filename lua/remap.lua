@@ -86,7 +86,8 @@ keymap.set("n", "<leader>lrf", vim.lsp.buf.references, {desc="re[f]erences"})
 keymap.set("n", "<leader>li", vim.lsp.buf.implementation, {desc="[i]mplementation"})
 keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "[h]over" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[f]ormat" })
-keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "[d]iagnostics" })
+keymap.set("n", "<leader>ld", vim.lsp.buf.definition, {desc = "[d]efinition"})
+keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "[d]iagnostics" })
 
 keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
 
@@ -124,6 +125,6 @@ require('which-key').add {
     { '<leader>t',    group = '[t]erminal' },
     { '<leader>g',    group = '[g]itsigns' },
     { '<leader>f',    group = '[f]lash (find)' },
-    { '<leader>l',    group = '[L]SP/Diagnostics'},
+    { '<leader>l',    group = '[L]SP'},
     { '<leader>lr',   group = '[r]e'}
 }
