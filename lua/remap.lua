@@ -22,7 +22,9 @@ keymap.set("i", "<C-Space>", function() vim.lsp.completion.get() end)
 
 keymap.set("t", "<esc>", "<C-\\><C-N>")
 
-keymap.set({ 'n', 'i', 'v', 't' }, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)
+if vim.g.neovide then
+    keymap.set({ 'n', 'i', 'v', 't' }, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)
+end
 
 keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "Find [f]iles" })
 keymap.set("n", "<leader>sa", require("telescope.builtin").live_grep, { desc = "Live grep in [a]ll files" })
