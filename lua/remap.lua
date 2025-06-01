@@ -5,7 +5,7 @@
 -- C-n/C-p or Up/Down: Select next/previous item
 -- C-e: Hide menu
 -- C-k: Toggle signature help
--- enter: accept
+-- Tab: accept
 -- C-b: scroll documentation up
 -- C-f: scroll documentation down
 

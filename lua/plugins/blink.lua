@@ -10,7 +10,7 @@ return {
 
     opts = {
         completion = { documentation = { auto_show = true } },
-        keymap = { preset = 'enter' },
+        keymap = { preset = 'super-tab' },
         signature = { enabled = true },
     }
 }
