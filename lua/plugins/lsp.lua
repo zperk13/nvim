@@ -50,7 +50,7 @@ for package_name, package_config in pairs(packages) do
     local config_without_masonignore = {}
     for k, v in pairs(package_config) do
         if k ~= "masonignore" then
-            config_without_masonignore[k]=v
+            config_without_masonignore[k] = v
         end
     end
     vim.lsp.config(package_name, config_without_masonignore)
@@ -65,9 +65,37 @@ return {
         { 'williamboman/mason.nvim', config = true },
         { "j-hui/fidget.nvim",       config = true },
         {
-            'folke/lazydev.nvim',
-            ft = 'lua',
+            "folke/lazydev.nvim",
+            ft = "lua",
             config = true
+        },
+        {
+            "saghen/blink.cmp",
+
+            -- optional: provides snippets for the snippet source
+            dependencies = { "rafamadriz/friendly-snippets" },
+
+            -- use a release tag to download pre-built binaries
+            version = "1.*",
+
+            opts = {
+                completion = { documentation = { auto_show = true } },
+                keymap = { preset = "super-tab" },
+                signature = { enabled = true },
+                sources = {
+                    -- default for default is { 'lsp', 'path', 'snippets', 'buffer' }
+                    default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+                    -- Everything in the below table is copied and pasted from lazydev.nvim's README.md
+                    providers = {
+                        lazydev = {
+                            name = "LazyDev",
+                            module = "lazydev.integrations.blink",
+                            -- make lazydev completions top priority (see `:h blink.cmp`)
+                            score_offset = 100,
+                        }
+                    }
+                }
+            },
         },
         "neovim/nvim-lspconfig",
     }
