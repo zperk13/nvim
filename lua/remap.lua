@@ -92,11 +92,11 @@ keymap.set("n", "<leader>ns", ":NvimTreeFocus<CR><C-w>o", { desc = "full[s]creen
 
 keymap.set("n", "<leader>lc", vim.lsp.buf.code_action, { desc = "[c]ode action" })
 keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, { desc = "re[n]ame" })
-keymap.set("n", "<leader>lrf", vim.lsp.buf.references, {desc="re[f]erences"})
-keymap.set("n", "<leader>li", vim.lsp.buf.implementation, {desc="[i]mplementation"})
+keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { desc = "re[f]erences" })
+keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { desc = "[i]mplementation" })
 keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "[h]over" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[f]ormat" })
-keymap.set("n", "<leader>ld", vim.lsp.buf.definition, {desc = "[d]efinition"})
+keymap.set("n", "<leader>ld", vim.lsp.buf.definition, { desc = "[d]efinition" })
 keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "[d]iagnostics" })
 
 keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "[o]il" })
@@ -122,19 +122,16 @@ local flash = require("flash")
 keymap.set('n', '<leader>ff', function() flash.jump() end, { desc = "[f]ind" })
 keymap.set('n', '<leader>fc', function() flash.jump({ continue = true }) end, { desc = "[c]ontinue last search" })
 
-
 require('which-key').add {
-    { '<leader>s',    group = 'Tele[s]cope' },
-    { '<leader>sl',   group = '[l]sp' },
-    { '<leader>v',    group = '[v]anilla vim' },
-    { '<leader>vn',   group = '[n]umbers' },
-    { '<leader>n',    group = '[n]vim-tree' },
-    { '<leader>e',    group = 'troubl[e]' },
-    { '<leader>eo',   group = '[o]pen' },
-    { '<leader>eol',  group = '[l]sp' },
-    { '<leader>t',    group = '[t]erminal' },
-    { '<leader>g',    group = '[g]itsigns' },
-    { '<leader>f',    group = '[f]lash (find)' },
-    { '<leader>l',    group = '[L]SP'},
-    { '<leader>lr',   group = '[r]e'}
+    { '<leader>v',   group = '[v]anilla vim' },
+    { '<leader>vn',  group = '[n]umbers' },
+    { '<leader>n',   group = '[n]vim-tree' },
+    { '<leader>e',   group = 'troubl[e]' },
+    { '<leader>eo',  group = '[o]pen' },
+    { '<leader>eol', group = '[l]sp' },
+    { '<leader>t',   group = '[t]erminal' },
+    { '<leader>g',   group = '[g]itsigns' },
+    { '<leader>f',   group = '[f]lash (find)' },
+    { '<leader>l',   group = '[L]SP' },
+    { '<leader>lr',  group = '[r]e' }
 }
