@@ -18,21 +18,23 @@ local packages = {
     },
     rust_analyzer = {
         masonignore = true, -- better to use rustup
-        -- settings = {
-        --     checkOnSave = true,
-        --     check = {
-        --         command = "clippy"
-        --     },
-        --     cargo = {
-        --         allFeatures = true,
-        --     },
-        --     inlayHints = {
-        --         enabled = true,
-        --         typeHints = {
-        --             enable = true
-        --         }
-        --     }
-        -- }
+        settings = {
+            ['rust-analyzer'] = {
+                checkOnSave = true,
+                check = {
+                    command = "clippy"
+                },
+                cargo = {
+                    allFeatures = true,
+                },
+                inlayHints = {
+                    enabled = true,
+                    typeHints = {
+                        enable = true
+                    }
+                }
+            }
+        }
     },
     taplo = {}, -- TOML
 }
