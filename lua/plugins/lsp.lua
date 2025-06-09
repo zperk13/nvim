@@ -1,12 +1,6 @@
 -- Hi future me! If mason is having trouble installing stuff, make sure you have npm installed
 
 local packages = {
-    clangd = {},
-    -- javascript/typescript
-    eslint = {},
-    -- haskell
-    html = {},
-    jsonls = {},
     lua_ls = {
         settings = {
             Lua = {
@@ -22,101 +16,57 @@ local packages = {
             }
         }
     },
-
-    -- markdown
-    marksman = {},
-
     rust_analyzer = {
         masonignore = true, -- better to use rustup
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = true,
-                check = {
-                    command = "clippy"
-                },
-                cargo = {
-                    allFeatures = true,
-                },
-                inlayHints = {
-                    enabled = true,
-                    typeHints = {
-                        enable = true
-                    }
-                }
-            }
-        }
+        -- settings = {
+        --     checkOnSave = true,
+        --     check = {
+        --         command = "clippy"
+        --     },
+        --     cargo = {
+        --         allFeatures = true,
+        --     },
+        --     inlayHints = {
+        --         enabled = true,
+        --         typeHints = {
+        --             enable = true
+        --         }
+        --     }
+        -- }
     },
-
-    -- 'spyglassmc-language-server', Even though I can install it in the :Mason gui, it doesn't like it being an option in here for some reason
-
-    -- TOML
-    taplo = {},
-
-    -- 'typst_lsp',
-
-    -- Typst
-    tinymist = {
-        single_file_support = true,
-        root_dir = function()
-            return vim.fn.getcwd()
-        end
-    },
-
-    ts_ls = {},
-
-    vimls = {},
+    taplo = {}, -- TOML
 }
 
+local mason_ensure_installed = {}
+for package_name, package_config in pairs(packages) do
+    if package_config.masonignore then
+        -- mason-lspconfig does this automatically for stuff it installs, but if we're doing masonignore, we need to enable it ourself
+        vim.lsp.enable(package_name)
+    else
+        table.insert(mason_ensure_installed, package_name)
+    end
+    local config_without_masonignore = {}
+    for k, v in pairs(package_config) do
+        if k ~= "masonignore" then
+            config_without_masonignore[k]=v
+        end
+    end
+    vim.lsp.config(package_name, config_without_masonignore)
+end
+
 return {
-    'neovim/nvim-lspconfig',
-    event = { "BufReadPost", "BufNewFile" },
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+        ensured_installed = mason_ensure_installed,
+    },
     dependencies = {
-        {
-            'williamboman/mason.nvim',
-            dependencies = { 'williamboman/mason-lspconfig.nvim' },
-            config = function()
-                local mason = require("mason")
-                local mason_lspconfig = require("mason-lspconfig")
-
-                mason.setup()
-
-                local ensured_installed = {}
-                for k, v in pairs(packages) do
-                    if not v.masonignore then
-                        table.insert(ensured_installed, k)
-                    end
-                end
-
-                mason_lspconfig.setup({
-                    ensure_installed = ensured_installed,
-                    automatic_installation = true
-                })
-            end
-        },
-
-        -- Useful status updates for LSP
-        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-        { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-
-        -- Additional lua configuration, makes nvim stuff amazing!
+        { 'williamboman/mason.nvim', config = true },
+        { "j-hui/fidget.nvim",       config = true },
         {
             'folke/lazydev.nvim',
             ft = 'lua',
             config = true
         },
-        },
-    opts = {},
-    config = function()
-        local lspconfig = require("lspconfig")
-        
-        for k, v in pairs(packages) do
-            local setup = {}
-            for vk, vv in pairs(v) do
-                if vk ~= "masonignore" then
-                    setup[vk] = vv
-                end
-            end
-            lspconfig[k].setup(setup)
-        end
-    end
+        "neovim/nvim-lspconfig",
+    }
 }
