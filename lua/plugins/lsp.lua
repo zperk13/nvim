@@ -59,7 +59,7 @@ end
 return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-        ensured_installed = mason_ensure_installed,
+        ensure_installed = mason_ensure_installed,
     },
     dependencies = {
         { 'williamboman/mason.nvim', config = true },
