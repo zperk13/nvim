@@ -3,7 +3,7 @@ return {
     config = function()
         local lint = require("lint")
         lint.linters_by_ft = {
-            sh = { "shellcheck" }
+            sh = { "shellcheck" } -- pacman -S shellcheck
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
