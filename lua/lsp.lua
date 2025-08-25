@@ -17,7 +17,13 @@ local packages = {
             }
         }
     },
-    pylsp = {}, -- pipx install python-lsp-server
+    pylsp = { -- pipx install python-lsp-server
+        settings = {
+            plugins = {
+                pylsp_mypy = {enabled = true} -- pipx inject python-lsp-server pylsp-mypy
+            }
+        }
+    },
     ruff = {}, -- pacman -S ruff
     rust_analyzer = { -- pacman -S rustup
         settings = {
