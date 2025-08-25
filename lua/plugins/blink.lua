@@ -1,0 +1,34 @@
+return {
+    "saghen/blink.cmp",
+
+    dependencies = {
+        "rafamadriz/friendly-snippets", -- optional: provides snippets for the snippet source
+        {
+            "folke/lazydev.nvim",
+            ft = "lua",
+            config = true
+        }
+    },
+
+    -- use a release tag to download pre-built binaries
+    version = "1.*",
+
+    opts = {
+        completion = { documentation = { auto_show = true } },
+        keymap = { preset = "super-tab" },
+        signature = { enabled = true },
+        sources = {
+            -- default for default is { 'lsp', 'path', 'snippets', 'buffer' }
+            default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+            -- Everything in the below table is copied and pasted from lazydev.nvim's README.md
+            providers = {
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    -- make lazydev completions top priority (see `:h blink.cmp`)
+                    score_offset = 100,
+                }
+            }
+        }
+    },
+}
