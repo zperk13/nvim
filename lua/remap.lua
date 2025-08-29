@@ -125,6 +125,7 @@ keymap.set('n', '<leader>ff', function() flash.jump() end, { desc = "[f]ind" })
 keymap.set('n', '<leader>fc', function() flash.jump({ continue = true }) end, { desc = "[c]ontinue last search" })
 
 require('which-key').add {
+    { '<leader>s',   group = 'Tele[s]cope' },
     { '<leader>v',   group = '[v]anilla vim' },
     { '<leader>vn',  group = '[n]umbers' },
     { '<leader>n',   group = '[n]vim-tree' },
