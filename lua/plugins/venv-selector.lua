@@ -5,14 +5,5 @@ return {
         { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
     },
     lazy = false,
-    keys = {
-        { "<leader>lv", "<cmd>VenvSelect<cr>" },
-    },
-    opts = {
-        search = {
-            uv_scripts = {
-                command = "fd python$ ~/.cache/uv/environments-v2"
-            }
-        }
-    },
+    opts = {},
 }

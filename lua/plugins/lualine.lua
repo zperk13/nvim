@@ -21,7 +21,7 @@ return {
                     update_in_insert = true
                 }
             },
-            lualine_x = { 'encoding', 'filesize' },
+            lualine_x = { 'venv-selector', 'encoding', 'filesize' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
         },
