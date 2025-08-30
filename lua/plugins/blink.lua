@@ -10,8 +10,7 @@ return {
         }
     },
 
-    -- use a release tag to download pre-built binaries
-    version = "1.*",
+    build='cargo build --release',
 
     opts = {
         completion = {
