@@ -14,7 +14,15 @@ return {
     version = "1.*",
 
     opts = {
-        completion = { documentation = { auto_show = true } },
+        completion = {
+            documentation = { auto_show = true },
+            menu = {
+                draw = {
+                    -- Default is { { 'kind_icon' }, { 'label', 'label_description', gap = 1 } }
+                    columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name", gap = 1 } }
+                }
+            }
+        },
         keymap = { preset = "super-tab" },
         signature = { enabled = true },
         sources = {
