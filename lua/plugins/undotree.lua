@@ -1,4 +1,4 @@
 return {
-    'mbbill/undotree',
+    "mbbill/undotree",
     event = { "BufReadPost", "BufNewFile" },
 }

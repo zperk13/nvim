@@ -1,4 +1,4 @@
 return {
-    'folke/flash.nvim',
+    "folke/flash.nvim",
     event = { "BufReadPost", "BufNewFile" },
 }

@@ -10,7 +10,7 @@ return {
         }
     },
 
-    build='cargo build --release',
+    build = "cargo build --release",
 
     opts = {
         completion = {

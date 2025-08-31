@@ -1,5 +1,5 @@
 return {
-    'kylechui/nvim-surround',
+    "kylechui/nvim-surround",
     event = { "BufReadPost", "BufNewFile" },
     config = true,
 }

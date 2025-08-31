@@ -11,7 +11,7 @@
 
 local keymap = vim.keymap
 
-keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+keymap.set({ 'n', 'v' }, "<Space>", "<Nop>", { silent = true })
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -22,7 +22,7 @@ keymap.set("i", "<C-Space>", function() vim.lsp.completion.get() end)
 
 keymap.set("t", "<esc>", "<C-\\><C-N>")
 
-keymap.set("n", "yA", "mAgg0\"+yG'A", {desc="Copy the entierty of the current buffer to the system clipboard"})
+keymap.set("n", "yA", "mAgg0\"+yG'A", { desc = "Copy the entierty of the current buffer to the system clipboard" })
 
 if vim.g.neovide then
     keymap.set({ 'n', 'i', 'v', 't' }, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)
@@ -86,7 +86,7 @@ keymap.set("n", "<leader>tf", function()
 end, { desc = "[f]ullscreen" }
 )
 
-keymap.set('n', '<leader>u', "<CMD>UndotreeToggle<CR>", { desc = "[u]ndotree" })
+keymap.set('n', "<leader>u", "<CMD>UndotreeToggle<CR>", { desc = "[u]ndotree" })
 
 keymap.set("n", "<leader>nt", function() vim.cmd("NvimTreeToggle") end, { desc = "[t]oggle" })
 keymap.set("n", "<leader>nf", function() vim.cmd("NvimTreeFocus") end, { desc = "[f]ocus" })
@@ -117,24 +117,24 @@ keymap.set("n", "<leader>eolo", function() trouble.open("lsp_outgoing_calls") en
 keymap.set("n", "<leader>eolr", function() trouble.open("lsp_references") end, { desc = "[r]eferences" })
 keymap.set("n", "<leader>eolt", function() trouble.open("lsp_type_definitions") end, { desc = "[t]ype definitions" })
 
-keymap.set('n', '<leader>gl', "<CMD>Gitsigns toggle_linehl<CR>", { desc = "Toggle [l]ine highlight" })
-keymap.set('n', '<leader>gw', "<CMD>Gitsigns toggle_word_diff<CR>", { desc = "Toggle [w]ord diff" })
+keymap.set('n', "<leader>gl", "<CMD>Gitsigns toggle_linehl<CR>", { desc = "Toggle [l]ine highlight" })
+keymap.set('n', "<leader>gw", "<CMD>Gitsigns toggle_word_diff<CR>", { desc = "Toggle [w]ord diff" })
 
 local flash = require("flash")
-keymap.set('n', '<leader>ff', function() flash.jump() end, { desc = "[f]ind" })
-keymap.set('n', '<leader>fc', function() flash.jump({ continue = true }) end, { desc = "[c]ontinue last search" })
+keymap.set('n', "<leader>ff", function() flash.jump() end, { desc = "[f]ind" })
+keymap.set('n', "<leader>fc", function() flash.jump({ continue = true }) end, { desc = "[c]ontinue last search" })
 
-require('which-key').add {
-    { '<leader>s',   group = 'Tele[s]cope' },
-    { '<leader>v',   group = '[v]anilla vim' },
-    { '<leader>vn',  group = '[n]umbers' },
-    { '<leader>n',   group = '[n]vim-tree' },
-    { '<leader>e',   group = 'troubl[e]' },
-    { '<leader>eo',  group = '[o]pen' },
-    { '<leader>eol', group = '[l]sp' },
-    { '<leader>t',   group = '[t]erminal' },
-    { '<leader>g',   group = '[g]itsigns' },
-    { '<leader>f',   group = '[f]lash (find)' },
-    { '<leader>l',   group = '[L]SP' },
-    { '<leader>lr',  group = '[r]e' }
+require("which-key").add {
+    { "<leader>s",   group = "Tele[s]cope" },
+    { "<leader>v",   group = "[v]anilla vim" },
+    { "<leader>vn",  group = "[n]umbers" },
+    { "<leader>n",   group = "[n]vim-tree" },
+    { "<leader>e",   group = "troubl[e]" },
+    { "<leader>eo",  group = "[o]pen" },
+    { "<leader>eol", group = "[l]sp" },
+    { "<leader>t",   group = "[t]erminal" },
+    { "<leader>g",   group = "[g]itsigns" },
+    { "<leader>f",   group = "[f]lash (find)" },
+    { "<leader>l",   group = "[L]SP" },
+    { "<leader>lr",  group = "[r]e" }
 }

@@ -2,7 +2,7 @@
 -- To get neovim to recognize stuff installed by pipx and cargo, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin"` and you need to use the full username path, ~ won't work
 local packages = {
     bashls = {}, -- pacman -S bash-language-server
-    lua_ls = { -- pacman -S lua-language-server
+    lua_ls = {   -- pacman -S lua-language-server
         settings = {
             Lua = {
                 diagnostics = {
@@ -20,14 +20,14 @@ local packages = {
     pylsp = { -- pipx install python-lsp-server
         settings = {
             plugins = {
-                pylsp_mypy = {enabled = true} -- pipx inject python-lsp-server pylsp-mypy
+                pylsp_mypy = { enabled = true } -- pipx inject python-lsp-server pylsp-mypy
             }
         }
     },
-    ruff = {}, -- pacman -S ruff
+    ruff = {},        -- pacman -S ruff
     rust_analyzer = { -- pacman -S rustup
         settings = {
-            ['rust-analyzer'] = {
+            ["rust-analyzer"] = {
                 checkOnSave = true,
                 check = {
                     command = "clippy"
