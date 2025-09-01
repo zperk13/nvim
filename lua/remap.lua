@@ -24,6 +24,8 @@ keymap.set("t", "<esc>", "<C-\\><C-N>")
 
 keymap.set("n", "yA", "mAgg0\"+yG'A", { desc = "Copy the entierty of the current buffer to the system clipboard" })
 
+keymap.set("n", "<leader>x", ":!chmod +x %<CR><CR>", { desc = "chmod +x file" })
+
 if vim.g.neovide then
     keymap.set({ 'n', 'i', 'v', 't' }, "<f11>", function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end)
 end
