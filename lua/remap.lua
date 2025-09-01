@@ -35,6 +35,7 @@ keymap.set("n", "<leader>sa", require("telescope.builtin").live_grep, { desc = "
 keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, { desc = "Open [b]uffers" })
 keymap.set("n", "<leader>sq", require("telescope.builtin").quickfix, { desc = "[q]uickfix" })
 keymap.set("n", "<leader>sc", require("telescope.builtin").current_buffer_fuzzy_find, { desc = "[c]urrent buffer" })
+keymap.set("n", "<leader>sn", require("telescope").extensions.notify.notify, { desc = "[n]otify" })
 keymap.set("n", "<leader>vnr", function() vim.cmd("set relativenumber!") end,
     { desc = "Toggle line number [r]elativity" })
 keymap.set("n", "<leader>vnt", function() vim.cmd("set number!") end, { desc = "[T]oggle line numbers" })
