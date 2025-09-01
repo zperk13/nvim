@@ -4,7 +4,7 @@ return {
         default_file_explorer = false,
         columns = {
         },
-        -- delete_to_trash = true, not supported on windows yet :(
+        delete_to_trash = true
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
 }
