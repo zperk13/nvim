@@ -1,6 +1,7 @@
 -- Extra configs coming from nvim-lspconfig plugin
 -- To get neovim to recognize stuff installed by pipx and cargo, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin"` and you need to use the full username path, ~ won't work
 local packages = {
+    basedpyright = {},-- pipx install basedpyright
     bashls = {}, -- pacman -S bash-language-server
     lua_ls = {   -- pacman -S lua-language-server
         settings = {
@@ -14,13 +15,6 @@ local packages = {
                         [vim.fn.stdpath("config") .. "/lua"] = true
                     }
                 }
-            }
-        }
-    },
-    pylsp = { -- pipx install python-lsp-server
-        settings = {
-            plugins = {
-                pylsp_mypy = { enabled = true } -- pipx inject python-lsp-server pylsp-mypy
             }
         }
     },
