@@ -1,5 +1,5 @@
 -- Extra configs coming from nvim-lspconfig plugin
--- To get nvim to recognize stuff installed by pipx and cargo, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin"` and you need to use the full username path, ~ won't work
+-- To get nvim to recognize stuff installed by pipx, cargo, and ghcup, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin"` and you need to use the full username path, ~ won't work
 local packages = {
     basedpyright = {},-- pipx install basedpyright
     bashls = {}, -- pacman -S bash-language-server
