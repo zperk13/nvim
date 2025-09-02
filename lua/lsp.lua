@@ -29,7 +29,7 @@ local packages = {
         }
     },
     ruff = {},        -- pacman -S ruff
-    rust_analyzer = { -- pacman -S rustup
+    rust_analyzer = { -- pacman -S rustup ; rustup update
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = true,
