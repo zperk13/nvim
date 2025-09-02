@@ -1,8 +1,18 @@
 -- Extra configs coming from nvim-lspconfig plugin
--- To get neovim to recognize stuff installed by pipx and cargo, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin"` and you need to use the full username path, ~ won't work
+-- To get nvim to recognize stuff installed by pipx and cargo, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin"` and you need to use the full username path, ~ won't work
 local packages = {
     basedpyright = {},-- pipx install basedpyright
     bashls = {}, -- pacman -S bash-language-server
+
+    -- Installation instructions for hls on Arch Linux:
+    -- 1. Install https://aur.archlinux.org/packages/ghcup-hs-bin
+    -- 2. ghcup install hls
+    -- 3. ghcup install ghc
+    -- 4. cd ~/.ghcup/bin
+    -- 5. ln -s 9.6.7 ghc
+    --     5a. Replace 9.6.7 with whatever the version you have it
+    -- 6. Ensure ~/.ghcup/bin is in $PATH. Refer to top of file for that.
+    hls = {}, -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ; 
     lua_ls = {   -- pacman -S lua-language-server
         settings = {
             Lua = {
