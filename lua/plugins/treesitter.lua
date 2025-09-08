@@ -1,3 +1,4 @@
+-- :TSInstall <language> to improve syntax highlighting for language
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "master",
