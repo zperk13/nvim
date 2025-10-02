@@ -1,5 +1,5 @@
 -- Extra configs coming from nvim-lspconfig plugin
--- To get nvim to recognize stuff installed by pipx, cargo, and ghcup, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin"` and you need to use the full username path, ~ won't work
+-- To get nvim to recognize stuff installed by pipx, cargo, ghcup, and pnpm, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin:/home/<USERNAME>/.local/share/pnpm"` and you need to use the full username path, ~ won't work
 local packages = {
     basedpyright = {},-- pipx install basedpyright
     bashls = {}, -- pacman -S bash-language-server
@@ -48,6 +48,8 @@ local packages = {
             }
         }
     },
+
+    spyglassmc_language_server = {}, -- pnpm i -g @spyglassmc/language-server
 
     -- cargo install taplo-cli --locked
     -- For TOML
