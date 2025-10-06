@@ -1,7 +1,18 @@
 -- Extra configs coming from nvim-lspconfig plugin
 -- To get nvim to recognize stuff installed by pipx, cargo, ghcup, and pnpm, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin:/home/<USERNAME>/.local/share/pnpm"` and you need to use the full username path, ~ won't work
 local packages = {
-    basedpyright = {},-- pipx install basedpyright
+    basedpyright = { -- pipx install basedpyright
+        settings = {
+            basedpyright = {
+                analysis = {
+                    diagnosticSeverityOverrides = {
+                        reportAny = false, -- Sometimes any can't be avoided in python, especially when using libraries
+                        reportImplicitRelativeImport = false -- This thing just seems to be wrong when working with scripts
+                    }
+                },
+            },
+        },
+    },
     bashls = {}, -- pacman -S bash-language-server
 
     -- Installation instructions for hls on Arch Linux:
