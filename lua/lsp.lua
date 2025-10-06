@@ -23,8 +23,8 @@ local packages = {
     -- 5. ln -s 9.6.7 ghc
     --     5a. Replace 9.6.7 with whatever the version you have it
     -- 6. Ensure ~/.ghcup/bin is in $PATH. Refer to top of file for that.
-    hls = {}, -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ; 
-    lua_ls = {   -- pacman -S lua-language-server
+    hls = {},  -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ;
+    lua_ls = { -- pacman -S lua-language-server
         settings = {
             Lua = {
                 diagnostics = {
