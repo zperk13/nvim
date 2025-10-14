@@ -65,6 +65,10 @@ local packages = {
     -- cargo install taplo-cli --locked
     -- For TOML
     taplo = {},
+
+    -- Typst LSP
+    -- pacman -S tinymist
+    tinymist = {}
 }
 
 for package_name, package_config in pairs(packages) do
