@@ -1,19 +1,24 @@
 -- Extra configs coming from nvim-lspconfig plugin
 -- To get nvim to recognize stuff installed by pipx, cargo, ghcup, and pnpm, I had to replace `export PATH` in /etc/profile with `export PATH="$PATH:/home/<USERNAME>/.cargo/bin:/home/<USERNAME>/.local/bin:/home/<USERNAME>/.ghcup/bin:/home/<USERNAME>/.local/share/pnpm"` and you need to use the full username path, ~ won't work
 local packages = {
-    basedpyright = { -- pipx install basedpyright
+    -- Python LSP
+    -- pipx install basedpyright
+    basedpyright = {
         settings = {
             basedpyright = {
                 analysis = {
                     diagnosticSeverityOverrides = {
-                        reportAny = false, -- Sometimes any can't be avoided in python, especially when using libraries
+                        reportAny = false,                   -- Sometimes any can't be avoided in python, especially when using libraries
                         reportImplicitRelativeImport = false -- This thing just seems to be wrong when working with scripts
                     }
                 },
             },
         },
     },
-    bashls = {}, -- pacman -S bash-language-server
+
+    -- Bash LSP
+    -- pacman -S bash-language-server
+    bashls = {},
 
     -- Installation instructions for hls on Arch Linux:
     -- 1. Install https://aur.archlinux.org/packages/ghcup-hs-bin
@@ -23,8 +28,11 @@ local packages = {
     -- 5. ln -s 9.6.7 ghc
     --     5a. Replace 9.6.7 with whatever the version you have it
     -- 6. Ensure ~/.ghcup/bin is in $PATH. Refer to top of file for that.
-    hls = {},  -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ;
-    lua_ls = { -- pacman -S lua-language-server
+    hls = {}, -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ;
+
+    -- Lua LSP
+    -- pacman -S lua-language-server
+    lua_ls = {
         settings = {
             Lua = {
                 diagnostics = {
@@ -39,8 +47,14 @@ local packages = {
             }
         }
     },
-    ruff = {},        -- pacman -S ruff
-    rust_analyzer = { -- pacman -S rustup ; rustup update
+
+    -- Python linter + formatter
+    -- pacman -S ruff
+    ruff = {},
+
+    -- Rust LSP
+    -- pacman -S rustup ; rustup update
+    rust_analyzer = {
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = true,
@@ -60,7 +74,9 @@ local packages = {
         }
     },
 
-    spyglassmc_language_server = {}, -- pnpm i -g @spyglassmc/language-server
+    -- Minecraft Datapack LSP
+    -- pnpm i -g @spyglassmc/language-server
+    spyglassmc_language_server = {},
 
     -- cargo install taplo-cli --locked
     -- For TOML
