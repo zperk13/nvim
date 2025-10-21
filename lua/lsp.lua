@@ -84,7 +84,14 @@ local packages = {
 
     -- Typst LSP
     -- pacman -S tinymist
-    tinymist = {}
+    tinymist = {
+        settings = {
+            formatterMode = "typstyle",
+            lint = {
+                enabled = true
+            }
+        }
+    }
 }
 
 for package_name, package_config in pairs(packages) do
