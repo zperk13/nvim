@@ -20,6 +20,11 @@ local packages = {
     -- pacman -S bash-language-server
     bashls = {},
 
+
+    -- Emmet LSP
+    -- pnpm i -g @olrtg/emmet-language-server
+    emmet_language_server = {},
+
     -- Installation instructions for hls on Arch Linux:
     -- 1. Install https://aur.archlinux.org/packages/ghcup-hs-bin
     -- 2. ghcup install hls
@@ -29,6 +34,11 @@ local packages = {
     --     5a. Replace 9.6.7 with whatever the version you have it
     -- 6. Ensure ~/.ghcup/bin is in $PATH. Refer to top of file for that.
     hls = {}, -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ;
+
+    -- vscode-langservers-extracted
+    -- HTML/CSS/JSON/ESLint language servers extracted from vscode
+    -- pnpm i -g vscode-langservers-extracted
+    html = {},
 
     -- Lua LSP
     -- pacman -S lua-language-server
