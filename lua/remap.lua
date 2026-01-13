@@ -36,12 +36,38 @@ keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, { desc = "Op
 keymap.set("n", "<leader>sq", require("telescope.builtin").quickfix, { desc = "[q]uickfix" })
 keymap.set("n", "<leader>sc", require("telescope.builtin").current_buffer_fuzzy_find, { desc = "[c]urrent buffer" })
 keymap.set("n", "<leader>sn", require("telescope").extensions.notify.notify, { desc = "[n]otify" })
+
+local function settabs(n)
+    local opt = vim.opt
+    opt.tabstop = n
+    opt.softtabstop = 0
+    -- 0 makes it use tabstop
+    opt.shiftwidth = 0
+    opt.expandtab=false
+    vim.cmd("retab")
+end
+
+local function setspaces(n)
+    local opt = vim.opt
+    opt.tabstop = n
+    opt.softtabstop = n
+    -- 0 makes it use tabstop
+    opt.shiftwidth = 0
+    -- Makes tab use spaces instead when in insert mode
+    opt.expandtab = true
+    vim.cmd("retab")
+end
+
 keymap.set("n", "<leader>vnr", function() vim.cmd("set relativenumber!") end,
     { desc = "Toggle line number [r]elativity" })
 keymap.set("n", "<leader>vnt", function() vim.cmd("set number!") end, { desc = "[T]oggle line numbers" })
 keymap.set("n", "<leader>vi", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
     { desc = "Toggle [i]nlay hints" })
 keymap.set("n", "<leader>vw", function() vim.cmd("set wrap!") end, { desc = "Toggle [w]rap" })
+for i=1,9 do
+    keymap.set("n", "<leader>vs"..i, function() setspaces(i) end)
+    keymap.set("n", "<leader>vt"..i, function() settabs(i) end)
+end
 
 -- "Smart dd" from Reddit. Only yanks the line if not empty
 keymap.set("n", "dd", function()
@@ -131,6 +157,8 @@ require("which-key").add {
     { "<leader>s",   group = "Tele[s]cope" },
     { "<leader>v",   group = "[v]anilla vim" },
     { "<leader>vn",  group = "[n]umbers" },
+    { "<leader>vs",  group = "[s]paces" },
+    { "<leader>vt",  group = "[t]abs" },
     { "<leader>n",   group = "[n]vim-tree" },
     { "<leader>e",   group = "troubl[e]" },
     { "<leader>eo",  group = "[o]pen" },
