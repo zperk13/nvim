@@ -60,9 +60,11 @@ opt.spelllang = "en_us"
 opt.showmode = false
 
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldenable = true
 opt.foldlevel = 99
+opt.foldlevelstart = 2
+opt.foldnestmax = 4
 
 -- virtual_text is inlay hints
 vim.diagnostic.config({ virtual_text = true })
