@@ -90,7 +90,7 @@ local packages = {
 
     -- cargo install taplo-cli --locked
     -- For TOML
-    taplo = {},
+    -- taplo = {},
 
     -- Typst LSP
     -- pacman -S tinymist
