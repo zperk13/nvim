@@ -74,6 +74,12 @@ local packages = {
                 cargo = {
                     allFeatures = true,
                 },
+                -- completion = {
+                --     autoimport = false,
+                --     callable = {
+                --         snippets = "none"
+                --     }
+                -- },
                 inlayHints = {
                     enabled = true,
                     typeHints = {

@@ -71,3 +71,5 @@ opt.showmode = false
 
 -- virtual_text is inlay hints
 vim.diagnostic.config({ virtual_text = true })
+
+-- opt.completeopt = { "menuone", "noselect", "popup" }

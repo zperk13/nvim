@@ -11,7 +11,7 @@ return {
         }
     },
 
-    build = "cargo +nightly-2025-09-30 build --release",
+    version = '1.*',
 
     opts = {
         completion = {
