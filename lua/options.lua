@@ -31,7 +31,7 @@ opt.scrolloff = 8
 -- Disables the mouse
 opt.mouse = ""
 
-opt.linebreak = true
+opt.linebreak = false
 
 opt.updatetime = 1000
 opt.timeoutlen = 1000
