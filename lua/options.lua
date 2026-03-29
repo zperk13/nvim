@@ -59,12 +59,12 @@ opt.spelllang = "en_us"
 -- Disables the default mode indicator since lualine has it
 opt.showmode = false
 
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldenable = true
-opt.foldlevel = 99
-opt.foldlevelstart = 2
-opt.foldnestmax = 4
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- opt.foldenable = true
+-- opt.foldlevel = 99
+-- opt.foldlevelstart = 2
+-- opt.foldnestmax = 4
 
 -- virtual_text is inlay hints
 vim.diagnostic.config({ virtual_text = true })
