@@ -31,6 +31,9 @@ opt.scrolloff = 8
 -- Disables the mouse
 opt.mouse = ""
 
+-- Highlights the current line the cursor is on
+opt.cursorline = true
+
 opt.linebreak = false
 
 opt.updatetime = 1000
