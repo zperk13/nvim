@@ -10,7 +10,14 @@ return {
     },
     config = function()
         local telescope = require("telescope")
-        telescope.setup({})
+        telescope.setup({
+            defaults = {
+                preview = {
+                    -- blink requires treesitter's main branch. Telescope preview wants master branch. blink is more important than telescope file preview having extra highlighting
+                    treesitter = false,
+                }
+            }
+        })
         telescope.load_extension("fzf")
     end
 }

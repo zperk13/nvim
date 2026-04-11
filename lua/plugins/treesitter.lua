@@ -1,13 +1,8 @@
 -- :TSInstall <language> to improve syntax highlighting for language
+-- You also may need to do `cargo install --locked tree-sitter-cli`
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
-    config = function()
-        require "nvim-treesitter.configs".setup
-        {
-            highlight = { enable = true }
-        }
-    end
 }
