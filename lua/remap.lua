@@ -117,10 +117,6 @@ end, { desc = "[f]ullscreen" }
 
 keymap.set('n', "<leader>u", "<CMD>UndotreeToggle<CR>", { desc = "[u]ndotree" })
 
-keymap.set("n", "<leader>nt", function() vim.cmd("NvimTreeToggle") end, { desc = "[t]oggle" })
-keymap.set("n", "<leader>nf", function() vim.cmd("NvimTreeFocus") end, { desc = "[f]ocus" })
-keymap.set("n", "<leader>ns", ":NvimTreeFocus<CR><C-w>o", { desc = "full[s]creen" })
-
 keymap.set("n", "<leader>lc", vim.lsp.buf.code_action, { desc = "[c]ode action" })
 keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, { desc = "re[n]ame" })
 keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { desc = "re[f]erences" })
@@ -159,7 +155,6 @@ require("which-key").add {
     { "<leader>vn",  group = "[n]umbers" },
     { "<leader>vs",  group = "[s]paces" },
     { "<leader>vt",  group = "[t]abs" },
-    { "<leader>n",   group = "[n]vim-tree" },
     { "<leader>e",   group = "troubl[e]" },
     { "<leader>eo",  group = "[o]pen" },
     { "<leader>eol", group = "[l]sp" },
