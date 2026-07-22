@@ -6,8 +6,6 @@ return {
     dependencies = {
         {
             "folke/lazydev.nvim",
-            ft = "lua",
-            config = true
         }
     },
 

@@ -44,17 +44,7 @@ local packages = {
     -- pacman -S lua-language-server
     lua_ls = {
         settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { "vim" },
-                },
-                workspace = {
-                    library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.stdpath("config") .. "/lua"] = true
-                    }
-                }
-            }
+            Lua = {}
         }
     },
 
