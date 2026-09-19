@@ -35,17 +35,32 @@ local packages = {
     -- 6. Ensure ~/.ghcup/bin is in $PATH. Refer to top of file for that.
     hls = {}, -- https://aur.archlinux.org/packages/ghcup-hs-bin ; ghcup install hls ; ghcup install ghc ;
 
-    -- vscode-langservers-extracted
-    -- HTML/CSS/JSON/ESLint language servers extracted from vscode
-    -- pnpm i -g vscode-langservers-extracted
-    html = {},
-
     -- Lua LSP
     -- pacman -S lua-language-server
     lua_ls = {
         settings = {
             Lua = {}
         }
+    },
+
+
+    -- JavaScript/TypeScript formatter
+    oxfmt = {
+        cmd = { "oxfmt", "--lsp" },
+        filetypes = {
+            "javascript", "javascriptreact", "typescript", "typescriptreact",
+            "json", "jsonc", "html", "css", "markdown"
+        },
+        root_markers = {
+            ".oxfmtrc.json",
+            "package.json",
+            ".git"
+        }
+    },
+    -- JavaScript/TypeScript linter
+    -- pnpm i -g oxlint
+    oxlint = {
+        root_markers = { "oxlint.json", "package.json", "package-lock.json", ".git" }
     },
 
     -- Python linter + formatter
@@ -82,7 +97,7 @@ local packages = {
 
     -- Minecraft Datapack LSP
     -- pnpm i -g @spyglassmc/language-server
-    spyglassmc_language_server = {},
+    -- spyglassmc_language_server = {},
 
     -- cargo install taplo-cli --locked
     -- For TOML
@@ -95,9 +110,29 @@ local packages = {
             formatterMode = "typstyle",
             lint = {
                 enabled = true
-            }
+            },
         }
-    }
+    },
+
+    -- pnpm i -g typescript@rc
+    tsgo = {
+        cmd = { "tsc", "--lsp", "--stdio" },
+        root_markers = {
+            "tsconfig.json",
+            "package.json",
+            "package-lock.json",
+            ".git"
+        },
+    },
+
+    -- vscode-langservers-extracted contains multiple LSPs.
+    -- Everything in this table below this comment is for those.
+    -- I'm not using the ESLint one, since I was having issues with it,
+    -- and I have oxlint.
+    -- pnpm i -g vscode-langservers-extracted
+    cssls = {},
+    jsonls = {},
+    html = {},
 }
 
 for package_name, package_config in pairs(packages) do
