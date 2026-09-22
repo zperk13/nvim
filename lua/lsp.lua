@@ -23,7 +23,7 @@ local packages = {
 
     -- Emmet LSP
     -- pnpm i -g @olrtg/emmet-language-server
-    emmet_language_server = {},
+    -- emmet_language_server = {},
 
     -- Installation instructions for hls on Arch Linux:
     -- 1. Install https://aur.archlinux.org/packages/ghcup-hs-bin
@@ -45,23 +45,23 @@ local packages = {
 
 
     -- JavaScript/TypeScript formatter
-    oxfmt = {
-        cmd = { "oxfmt", "--lsp" },
-        filetypes = {
-            "javascript", "javascriptreact", "typescript", "typescriptreact",
-            "json", "jsonc", "html", "css", "markdown"
-        },
-        root_markers = {
-            ".oxfmtrc.json",
-            "package.json",
-            ".git"
-        }
-    },
+    -- oxfmt = {
+    --     cmd = { "oxfmt", "--lsp" },
+    --     filetypes = {
+    --         "javascript", "javascriptreact", "typescript", "typescriptreact",
+    --         "json", "jsonc", "html", "css", "markdown"
+    --     },
+    --     root_markers = {
+    --         ".oxfmtrc.json",
+    --         "package.json",
+    --         ".git"
+    --     }
+    -- },
     -- JavaScript/TypeScript linter
     -- pnpm i -g oxlint
-    oxlint = {
-        root_markers = { "oxlint.json", "package.json", "package-lock.json", ".git" }
-    },
+    -- oxlint = {
+    --     root_markers = { "oxlint.json", "package.json", "package-lock.json", ".git" }
+    -- },
 
     -- Python linter + formatter
     -- pacman -S ruff
@@ -115,24 +115,24 @@ local packages = {
     },
 
     -- pnpm i -g typescript@rc
-    tsgo = {
-        cmd = { "tsc", "--lsp", "--stdio" },
-        root_markers = {
-            "tsconfig.json",
-            "package.json",
-            "package-lock.json",
-            ".git"
-        },
-    },
+    -- tsgo = {
+    --     cmd = { "tsc", "--lsp", "--stdio" },
+    --     root_markers = {
+    --         "tsconfig.json",
+    --         "package.json",
+    --         "package-lock.json",
+    --         ".git"
+    --     },
+    -- },
 
     -- vscode-langservers-extracted contains multiple LSPs.
     -- Everything in this table below this comment is for those.
     -- I'm not using the ESLint one, since I was having issues with it,
     -- and I have oxlint.
     -- pnpm i -g vscode-langservers-extracted
-    cssls = {},
-    jsonls = {},
-    html = {},
+    -- cssls = {},
+    -- jsonls = {},
+    -- html = {},
 }
 
 for package_name, package_config in pairs(packages) do
