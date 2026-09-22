@@ -1,7 +1,7 @@
 return {
     "saghen/blink.cmp",
 
-    event="InsertEnter",
+    event = "InsertEnter",
 
     dependencies = {
         {
@@ -33,6 +33,11 @@ return {
                     module = "lazydev.integrations.blink",
                     -- make lazydev completions top priority (see `:h blink.cmp`)
                     score_offset = 100,
+                },
+                path = {
+                    opts = {
+                        show_hidden_files_by_default = true,
+                    }
                 }
             }
         }
